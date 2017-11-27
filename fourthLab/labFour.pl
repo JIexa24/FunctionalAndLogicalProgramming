@@ -1,3 +1,5 @@
+%consult('filename')
+
 parent(X, Y):-
     X = mary,Y = bob;
     X = mary,Y = ann;
