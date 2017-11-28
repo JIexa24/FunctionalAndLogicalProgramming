@@ -1,5 +1,5 @@
 //
-(defun two(l1 l2) (cond ((and (null l1) (null l2)) t)
+(defun two(l1 l2) (cond ((and (null l1) (null l2)) nil)
                         ((member (car l1) l2) (equal (remove (car l1) l1) (remove (car l1) l2)) t)
                         (t	nil)))
 
