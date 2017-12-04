@@ -1,4 +1,4 @@
-from_1_to_3():-
+from_1_to_3:-
     write("List:"), nl,
     read(S),
     write("First number:"), nl,
@@ -36,7 +36,7 @@ max([X|T], X):-
 max([_|T], X):-
     max(T, X).
 
-numbers_of_max():-
+numbers_of_max:-
     write("Enter the list:"), nl,
     read(X),
     max(X, Y),
@@ -51,7 +51,7 @@ numbers_of_max([H|T], Max, Count, Tr):-
     append([Count1], Tr1, Tr);
     numbers_of_max(T, Max, Count1, Tr)).
 
-freq():-
+freq:-
     write("Enter the list"), nl,
     read(X),
     msort(X, Y),

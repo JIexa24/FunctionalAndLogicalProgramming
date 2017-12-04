@@ -1,7 +1,7 @@
-odd():-
-    writeln('print X:'),
+odd:-
+    write('print X:'),
     read(X),
-    writeln('print Y:'),
+    write('print Y:'),
     read(Y),
     odd(X,Y).
 
@@ -11,10 +11,10 @@ odd(X, Y):-
     Z is (Y - 1),
     odd(X, Z); true).
 
-sum():-
-    writeln('print X:'),
+sum:-
+    write('print X:'),
     read(X),
-    writeln('print Y:'),
+    write('print Y:'),
     read(Y),
     Z is 0,
     sum(X, Y, Z).
@@ -23,8 +23,8 @@ sum(X, Y, Z):-
     W is (Y - 1),
     ((W >= X) -> sum(X, W, V); write(V), !, true).
 
-min():-
-    writeln('print X:'),
+min:-
+    write('print X:'),
     read(X),nl,
     Min is 10,
     min(X, Min).
@@ -38,9 +38,9 @@ min(X, M):-
     (Y < M -> min(Xnew, Y); min(Xnew, M));
      write(M)).
 
-fib():-
+fib:-
     repeat,
-    writeln('print X'),
+    write('print X'),
     read(X),
     fib(X, Y),
     writeln(Y),
