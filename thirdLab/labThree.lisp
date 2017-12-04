@@ -14,6 +14,8 @@
 (terpri)
 (princ "2:")(princ (two '(f g h) '(d c a b e)))
 (terpri)
+(princ "2:")(princ (two '() '()))
+(terpri)
 
 (princ "5:")(princ (five '(a b c d e) '(f g c b a k)))
 (terpri)
