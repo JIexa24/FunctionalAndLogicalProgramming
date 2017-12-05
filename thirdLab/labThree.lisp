@@ -1,5 +1,5 @@
 //
-(defun two(l1 l2) (cond ((and (null l1) (null l2)) nil)
+(defun two(l1 l2) (cond ((and (null l1) (null l2)) t)
                         ((member (car l1) l2) (equal (remove (car l1) l1) (remove (car l1) l2)) t)
                         (t	nil)))
 
@@ -7,7 +7,7 @@
 (t (cons (car a) (five (remove (car a) (cdr a)) (remove (car a) b))))))
 
 (defun ten(function list) (cond ((null list) nil)
-                             ((null (funcall function (car list))) (cons '* (ten function (cdr list))))
+                             ((null (apply function (list (car list)))) (cons '* (ten function (cdr list))))
                              (t (cons (car list) (ten function (cdr list)))) ))
 
 (princ "2:")(princ (two '(a b c) '(d c a b e)))
