@@ -1,9 +1,9 @@
 from_1_to_3:-
-    write("List:"), nl,
+    write('List:'), nl,
     read(S),
-    write("First number:"), nl,
+    write('First number:'), nl,
     read(N1),
-    write("Second number:"), nl,
+    write('Second number:'), nl,
     read(N2),
     from_1_to_3(S, T1, T2, T3, N1, N2),
     write(T1),
@@ -51,12 +51,27 @@ numbers_of_max([H|T], Max, Count, Tr):-
     append([Count1], Tr1, Tr);
     numbers_of_max(T, Max, Count1, Tr)).
 
+    move_max_to_end([], []):-!.
+    move_max_to_end([Head], [Head]):-!.
+    move_max_to_end([First, Second|Tail], [Second|ListWithMaxEnd]):-
+      First > Second, !,
+      move_max_to_end([First|Tail], ListWithMaxEnd).
+    move_max_to_end([First, Second|Tail], [First|ListWithMaxEnd]):-
+      move_max_to_end([Second|Tail], ListWithMaxEnd).
+      bubble_sort(SortedList, SortedList):-
+  move_max_to_end(SortedList, DoubleSortedList),
+  SortedList = DoubleSortedList, !.
+bubble_sort(List, SortedList):-
+  move_max_to_end(List, SortedPart),
+  bubble_sort(SortedPart, SortedList).
+
 freq:-
-    write("Enter the list"), nl,
+    write('Enter the list'), nl,
     read(X),
-    msort(X, Y),
+    bubble_sort(X, Y),
     freq(Y, Z),
     write(Z).
+
 
 freq([], []).
 freq([H|T], Res):-
