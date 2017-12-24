@@ -5,6 +5,7 @@ insert(Element, [Head|Tail], [Head|InsertTail]):-
   insert(Element, Tail, InsertTail).
 
 run:-
+  retractall(student/3),
   consult('basesrc.dat'),
   menu.
 
@@ -42,5 +43,16 @@ add_base:-
   read(Group),
   write('Marks: '),
   read(Marks),
-  assert(student(Group,Name,Marks)),
-  quest,!.
+  assertz(student(Group,Name,Marks)),
+  again,!.
+
+
+
+again :-
+  write('Ввести еще одно ? y/n '),
+  read(A),
+  answer(A).
+
+answer(_):-fail.
+answer(y):-fail.
+answer(n).
