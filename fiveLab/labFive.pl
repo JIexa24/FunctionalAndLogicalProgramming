@@ -40,12 +40,11 @@ min(X, M):-
 
 fib:-
     repeat,
-    write('print X'),
+    write('print X:'),
     read(X),
+    (X < 0 -> !;
     fib(X, Y),
-    writeln(Y),
-    X < 0,
-    !.
+    write(Y),!).
 fib(X, Y):-
     (X =:= 0 -> Y is 1;
     (X =:= 1 -> Y is 1;

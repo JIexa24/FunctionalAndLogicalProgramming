@@ -4,10 +4,43 @@ insert(Element, [Head|Tail], [Element, Head|Tail]):-
 insert(Element, [Head|Tail], [Head|InsertTail]):-
   insert(Element, Tail, InsertTail).
 
+run:-
+  consult('basesrc.dat'),
+  menu.
 
+menu:-
+      repeat,
+      write('-----------------------'),nl,nl,
+      write('БАЗА ДАННЫХ: Итоги сессии студентов'),nl,nl,
+      write('1–Просмотреть базу данных.'),nl,
+      write('2–Добавить новые итоги сессии в базу данных. '),nl,
+      write('--------------------------------'),nl,
+      write('Выберите нужный пункт меню: [1-6] '),
+      read(X),
+      X<7,
+      process(X),
+      X=6,!.
 
-#student(521, Agishev, [flp/5, filos/5, pct/5, schem/4]).
-#student(521, Belyaev, [flp/4, filos/3, pct/4, schem/3]).
-#student(521, Lysenko, [flp/4, filos/3, pct/4, schem/4]).
-#student(521, Manichev, [flp/2, filos/2, pct/4, schem/2]).
-#student(521, Mingazeev, [flp/5, filos/4, pct/4, schem/5]).
+process(1):-view_base.
+process(2):-add_base.
+
+process(6):-retractall(student/3),!.
+
+view_base:-
+  student(Group,Name,Marks),
+  write('Group: '), write(Group),nl,
+  write('Name: '), write(Name),nl,
+  write('Marks: '), write(Marks),nl,
+  write('-------------------------------'),nl.
+
+add_base:-
+  write('Add to base:'),nl,nl,
+  repeat,
+  write('Name: '),
+  read(Name),
+  write('Group: '),
+  read(Group),
+  write('Marks: '),
+  read(Marks),
+  assert(student(Group,Name,Marks)),
+  quest,!.

@@ -34,7 +34,7 @@ successor(X):-parent(X,Y),man(Y),man(X).
 %father(Who, sam).
 %mother(Who, bob).
 %sister(Who, sam).
-%sister(Who, liz).
+%sister(Who, liz).su
 %brother(Who, bob).
 %grandchild(Who, mary).
 %grandchild(paul, Who).
