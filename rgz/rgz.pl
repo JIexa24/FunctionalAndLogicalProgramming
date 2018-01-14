@@ -19,7 +19,7 @@ menu:-
       write('4–Загрузить базу из файла. '),nl,
       write('5–Сохранить базу в файл. '),nl,
       write('--------------------------------'),nl,
-      write('Выберите нужный пункт меню: [1-6] (7 - выход): '),
+      write('Выберите нужный пункт меню: [1-6] (7 - выход): '),nl,
       read(X),
       X<8,
       process(X),
@@ -30,6 +30,7 @@ process(2):-add_base.
 process(3):-remove_base.
 process(4):-load_base.
 process(5):-save_base.
+process(6):-find_base.
 process(7):-retractall(student/3),!.
 
 get_mark(_/M, M).
@@ -78,7 +79,7 @@ load_base:-
 
 save_base:-
   tell('basedst.dat'),
-  listing(airport),
+  listing(student),
   told,
   write('Текстовый файл базы данных(basedst.dat) сохранен!'),nl.
 
@@ -92,12 +93,12 @@ view_base:-
 add_base:-
   write('Add to base:'),nl,nl,
   repeat,
-  write('Name: '),
+  write('Name: '),nl,
   read(Name),
-  write('Group: '),
+  write('Group: '),nl,
   read(Group),
-  write('Marks: '),
-  read(Marks),
+  write('Marks: '),nl,
+  read(Marks),nl,
   assertz(student(Group,Name,Marks)),
   again,!.
 

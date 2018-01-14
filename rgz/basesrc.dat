@@ -1,3 +1,6 @@
 
 student(521, 1 , [ttt/3,yyy/4]).
 student(521, 2, [ttt/3,yyy/4]).
+student(521, 3, [ttt/2,yyy/2]).
+student(521, 4, [ttt/3,yyy/2]).
+student(521, 5, [ttt/5,yyy/5]).
