@@ -105,9 +105,9 @@ add_base:-
 
 remove_base:-
   write('Удаление записи'),nl,nl,
-  write('Введите Имя для удаления: '),
+  write('Введите Имя для удаления: '),nl,
   read(Name),
-  retract(student(_,Name,_)),
+  retract(student(_,Name,_)),nl,
   write('Запись удалена!'),nl,nl.
 
 again :-
