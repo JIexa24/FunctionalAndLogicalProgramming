@@ -39,7 +39,7 @@ get_name(student(Name, _), Name).
 
 checkPos(student(_, L)) :-
       maplist(get_mark, L, Ms),
-      include(>=(3), Ms, LMs),
+      include(>=(5), Ms, LMs),
       length(LMs, LenLMs),
       LenLMs < 3.
 
